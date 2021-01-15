@@ -123,7 +123,7 @@ class LibPhonenumberTextFormatter extends TextInputFormatter {
         if (phoneNumberFormat == PhoneNumberFormat.international &&
             !numericString.startsWith(countryData.phoneCode)) {
           numericStringWithCountryCode =
-              '${countryData.phoneCode}$numericString';
+              '${countryData.phoneCode.replaceAll('0', '1')}$numericString';
         } else {
           numericStringWithCountryCode = numericString;
         }
@@ -141,7 +141,7 @@ class LibPhonenumberTextFormatter extends TextInputFormatter {
             format: phoneNumberFormat, type: phoneNumberType);
 
         if (phoneNumberFormat == PhoneNumberFormat.national) {
-          mask = '+${countryData.phoneCode} $mask';
+          mask = '+${countryData.phoneCode.replaceAll('0', '1')} $mask';
         }
 
         final maskedResult = _formatByMask(
@@ -170,7 +170,7 @@ class LibPhonenumberTextFormatter extends TextInputFormatter {
             format: phoneNumberFormat, type: phoneNumberType);
 
         if (phoneNumberFormat == PhoneNumberFormat.national) {
-          mask = '+${_countryData.phoneCode} $mask';
+          mask = '+${_countryData.phoneCode.replaceAll('0', '1')} $mask';
         }
 
         return _formatByMask(
