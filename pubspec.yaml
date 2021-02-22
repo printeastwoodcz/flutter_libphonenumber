@@ -30,6 +30,8 @@ flutter:
       android:
         package: com.bottlepay.flutter_libphonenumber
         pluginClass: FlutterLibphonenumberPlugin
+      macos:
+        pluginClass: FlutterLibphonenumberPlugin
       ios:
         pluginClass: FlutterLibphonenumberPlugin
   # To add assets to your plugin package, add an assets section, like this:
